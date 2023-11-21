@@ -34,6 +34,17 @@ button {
   will-change: box-shadow,transform;
   font-size: 18px;
 }
+@media (max-width:680px) {
+  button {
+    max-width: 113px;
+    max-height: 32px;
+  }
+}
+@media (max-width:430px) {
+  button {
+    font-size: 13px;
+  }
+}
 
 @media (prefers-color-scheme: light) {
   :root {

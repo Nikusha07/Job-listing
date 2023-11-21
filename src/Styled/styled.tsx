@@ -1,11 +1,24 @@
 import styled from "styled-components";
 
 export const FilterDiv = styled.div`
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  bottom: -10%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin-top: 50px;
+  width: 92%;
   gap: 20px;
+  height: 72px;
+  background-color: white;
+  padding: 30px 30px 30px 30px;
+  border-radius: 5px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  @media (max-width: 680px) {
+    height: auto;
+  }
 `;
 
 export const SkillsContent = styled.div`
@@ -31,6 +44,15 @@ export const Skills = styled.div`
   top: 50%;
   transform: translateY(-50%);
   gap: 10px;
+  @media (max-width: 700px) {
+    position: static;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+  };
+  @media (max-width: 520px) {
+    grid-template-columns: repeat(2, 2fr);
+  };
 `;
 
 export const Circle = styled.span`
@@ -91,6 +113,14 @@ export const Img = styled.img`
   width: 88px;
   height: 88px;
   border-radius: 50%;
+  @media (max-width: 700px) {
+    position: absolute;
+    top: -15%;
+  };
+  @media (max-width: 520px) {
+    position: absolute;
+    top: -10%;
+  };
 `;
 
 export const Head = styled.div`
@@ -99,6 +129,7 @@ export const Head = styled.div`
   top: 0;
   width: 100%;
   height: 156px;
+  display: flex;
 `;
 
 export const UserDiv = styled.div`
@@ -109,12 +140,16 @@ export const UserDiv = styled.div`
   gap: 50px;
   margin-bottom: 40px;
   background-color: white;
-  border-left: 4px solid blue;
+  border-left: 6px solid #5CA5A5;
   border-radius: 5px;
   width: 100%;
   @media (max-width: 1100px) {
     flex-direction: column;
-  }`;
+  }
+  @media (max-width: 700px) {
+    padding-top: 60px;
+  };`;
+  
 
 export const Container = styled.section`
   position: relative;
@@ -123,4 +158,30 @@ export const Container = styled.section`
   padding: 240px 65px 20px 65px;
   margin: 0 auto;
   background-color: aliceblue;
-`;
+  @media (max-width: 700px) {
+    padding: 290px 10px 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  };`;
+
+export const Line = styled.div`
+  width: 99%;
+  padding: 0 10px 0 10px;
+  height: 1px;
+  background-color: black;
+  display: none;
+  opacity: 0.5;
+  @media (max-width: 700px) {
+    display: block;
+  };
+`
+
+export const FilterButtonDiv = styled.div`
+  display: flex;
+  gap: 10px;
+  @media (max-width: 680px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+`

@@ -15,16 +15,20 @@ import {
   SkillsContent,
   Head,
   FilterDiv,
+  Line,
+  FilterButtonDiv
 } from './Styled/styled'
 
 
 const MyForm: React.FC = () => {
   const [filteredJobs, setFilteredJobs] = useState(data);
-
   const filterJobs = (criteria: string) => {
     const filtered = data.filter((job) => job.role === criteria);
     setFilteredJobs(filtered);
   };
+const clearFilters = () => {
+  setFilteredJobs(data);
+};
 
 const divStyle = {
   background: `url("data:image/svg+xml,${encodeURIComponent(svgData)}") center/cover no-repeat`,
@@ -35,9 +39,14 @@ const divStyle = {
     <Container>
       <Head style={divStyle}>
         <FilterDiv>
-          <button onClick={() => filterJobs('Frontend')}>Frontend</button>
-          <button onClick={() => filterJobs('Fullstack')}>Fullstack</button>
-          <button onClick={() => filterJobs('Backend')}>Backend</button>
+          <FilterButtonDiv>
+            <button onClick={() => filterJobs('Frontend')}>Frontend</button>
+            <button onClick={() => filterJobs('Fullstack')}>Fullstack</button>
+            <button onClick={() => filterJobs('Backend')}>Backend</button>
+          </FilterButtonDiv>
+          <div>
+            <button onClick={clearFilters}>Clear</button>
+          </div>
         </FilterDiv>
       </Head>
       {filteredJobs.map((item) => (
@@ -54,6 +63,7 @@ const divStyle = {
               <PostedText>{item.location}</PostedText>
             </Posted>
           </About>
+          <Line></Line>
           <Skills>
             {item.role && <SkillsContent>{item.role}</SkillsContent>}
             {item.level && <SkillsContent>{item.level}</SkillsContent>}
