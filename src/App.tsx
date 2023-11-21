@@ -14,10 +14,9 @@ import {
   Skills,
   SkillsContent,
   Head,
-  FilterDiv,
   Line,
-  FilterButtonDiv
 } from './Styled/styled'
+import FilterButtons from './Components/Button';
 
 
 const MyForm: React.FC = () => {
@@ -38,16 +37,10 @@ const divStyle = {
   return (
     <Container>
       <Head style={divStyle}>
-        <FilterDiv>
-          <FilterButtonDiv>
-            <button onClick={() => filterJobs('Frontend')}>Frontend</button>
-            <button onClick={() => filterJobs('Fullstack')}>Fullstack</button>
-            <button onClick={() => filterJobs('Backend')}>Backend</button>
-          </FilterButtonDiv>
-          <div>
-            <button onClick={clearFilters}>Clear</button>
-          </div>
-        </FilterDiv>
+        <FilterButtons
+            filterHandler={filterJobs}
+            clearFiltersHandler={clearFilters}
+          />
       </Head>
       {filteredJobs.map((item) => (
         <UserDiv key={item.id}>
